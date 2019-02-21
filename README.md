@@ -8,12 +8,12 @@
    
    Jawaban :
    Langkah-Langkah :
-   a) unzip file nature.zip
-   b) buatlah base script unutk menenkripsikan isi file nature.zip
-   c) lalu buatlah fungsi perulangan yang isinya :
+  * a) unzip file nature.zip
+  * b) buatlah base script unutk menenkripsikan isi file nature.zip
+  * c) lalu buatlah fungsi perulangan yang isinya :
         i)  decrypt menggunakan base64 -d
         ii) reverse hexdump menggunakan xxd -r agar menjadi bentuk file
-   d) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
+  * d) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
     14 14 14 2 * bash /home/hafidzasqalany28/nature/soal1.sh
     0   0  * 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
 2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta
@@ -27,12 +27,12 @@
            
    jawaban :
    Langkah-Langkah :
-   a) buatlah script awk untuk menyortir data agar hanya mendapatkan tabel negara dan quantity pada tahun 2012.
-   b) total semua quantity yang ada pada setiap negara.
-   c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
-   d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada poin b.
-   e) total semua quantity pada product line.
-   f) tampilkan 3 product line yang mempunyai quantity terbanyak dengan menggunakan perulangan.
-   g) buatlah script awk untuk menyortir data agar menampilkan tabel product dan quantity pada product line yang didapatkan pada poin f.
-   h) total semua quantity pada product.
-   i) tampilkan 3 product yang mempunyai quantity terbanyak dengan menggunakan perulangan.
+  * a) buatlah script awk untuk menyortir data agar hanya mendapatkan tabel negara dan quantity pada tahun 2012.
+  * b) total semua quantity yang ada pada setiap negara.
+  * c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
+  * d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada             poin b.
+  * e) total semua quantity pada product line.
+  * f) tampilkan 3 product line yang mempunyai quantity terbanyak dengan menggunakan perulangan.
+  * g) buatlah script awk untuk menyortir data agar menampilkan tabel product dan quantity pada product line yang didapatkan pada poin f.
+  * h) total semua quantity pada product.
+  * i) tampilkan 3 product yang mempunyai quantity terbanyak dengan menggunakan perulangan.
