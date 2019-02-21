@@ -58,4 +58,4 @@
   * d) mengubah data syslog menjadi hexdump dan sortir menggunakan awk
   * e) membuat fungsi agar isi dari file poin a mempunyai ketentuan sesuai poin soal a-c.
   * f) membuat file crontab :
-  * 0 0/1 * * * bash /home/hafidzasqalany28/soal4.sh
+  * 0 * * * * bash /home/hafidzasqalany28/soal4.sh
