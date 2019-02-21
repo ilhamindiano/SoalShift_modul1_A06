@@ -1,0 +1,6 @@
+# soal1.sh
+14 14 14 2 * bash /home/hafidzasqalany28/nature/soal1.sh
+0 0 * 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
+# soal4.sh   
+0 * * * * bash /home/hafidzasqalany28/soal4.sh
+
