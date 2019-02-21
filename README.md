@@ -7,7 +7,7 @@
    Hint: Base64, Hexdump
    
    Jawaban :
-  *Langkah-Langkah :
+  * Langkah-Langkah :
   * a) unzip file nature.zip
   * b) buatlah base script unutk menenkripsikan isi file nature.zip
   * c) lalu buatlah fungsi perulangan yang isinya :
@@ -26,7 +26,7 @@
            poin b.
            
    jawaban :
-  *Langkah-Langkah :
+  * Langkah-Langkah :
   * a) buatlah script awk untuk menyortir data agar hanya mendapatkan tabel negara dan quantity pada tahun 2012.
   * b) total semua quantity yang ada pada setiap negara.
   * c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
