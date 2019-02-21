@@ -14,8 +14,8 @@
         i)  decrypt menggunakan base64 -d
         ii) reverse hexdump menggunakan xxd -r agar menjadi bentuk file
   * d) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
-    14 14 14 2 * bash /home/hafidzasqalany28/nature/soal1.sh
-    0   0  * 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
+  * 14 14 14 2 * bash /home/hafidzasqalany28/nature/soal1.sh
+  *  0   0  * 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
 2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta
    untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv.
    Laporan yang diminta berupa:
