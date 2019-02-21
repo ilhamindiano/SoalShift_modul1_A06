@@ -41,21 +41,21 @@
    bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string
    manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai
    berikut:
-   * a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan
+  * a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan
          pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki
          urutan ke 12+2 = 14.
-   * b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke
+  * b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke
          empat belas, dan seterusnya.
-   * c. setelah huruf z akan kembali ke huruf a
-   * d. Backup file syslog setiap jam.
-   * e. dan buatkan juga bash script untuk dekripsinya.
+  * c. setelah huruf z akan kembali ke huruf a
+  * d. Backup file syslog setiap jam.
+  * e. dan buatkan juga bash script untuk dekripsinya.
       jawaban :
-   * Langkah-Langkah :
-   * a) deklarasikan variabel date agar menyimpan data untuk memiliki format nama file “jam:menit tanggal-
+  * Langkah-Langkah :
+  * a) deklarasikan variabel date agar menyimpan data untuk memiliki format nama file “jam:menit tanggal-
          bulan-tahun”.
-   * b) deklarasikan variabel agar dapat menyimpan data jam yang akan di print.
-   * c) melihat semua proses syslog yang telah berjalan 
-   * d) mengubah data syslog menjadi hexdump dan sortir menggunakan awk
-   * e) membuat fungsi agar isi dari file poin a mempunyai ketentuan sesuai poin soal a-c.
-   * f) membuat file crontab :
-   * 0 0/1 * * * bash /home/hafidzasqalany28/soal4.sh
+  * b) deklarasikan variabel agar dapat menyimpan data jam yang akan di print.
+  * c) melihat semua proses syslog yang telah berjalan 
+  * d) mengubah data syslog menjadi hexdump dan sortir menggunakan awk
+  * e) membuat fungsi agar isi dari file poin a mempunyai ketentuan sesuai poin soal a-c.
+  * f) membuat file crontab :
+  * 0 0/1 * * * bash /home/hafidzasqalany28/soal4.sh
