@@ -9,8 +9,7 @@
    Jawaban :
   * Langkah-Langkah :
   * a) unzip file nature.zip
-  * b) buatlah base script unutk menenkripsikan isi file nature.zip
-  * c) lalu buatlah fungsi perulangan yang isinya :
+  * b) lalu buatlah bash script dengan menggunakan fungsi perulangan yang isinya :
         i)  decrypt menggunakan base64 -d
         ii) reverse hexdump menggunakan xxd -r agar menjadi bentuk file
   * d) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
