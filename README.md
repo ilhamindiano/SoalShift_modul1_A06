@@ -6,11 +6,19 @@
     Jawaban :
 
     Langkah-Langkah :
-    a) unzip file nature.zip
-    b) lalu buatlah bash script dengan menggunakan fungsi perulangan yang isinya : i) decrypt menggunakan base64 -d ii) reverse hexdump menggunakan xxd -r agar menjadi bentuk file
-    d) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
-    14 14 14 2 * bash /home/hafidzasqalany28/nature/soal1.sh
-    0 0 * 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
+    a) unzip file nature.zip.
+    b) lalu buatlah bash script di dalam folder ekstrak file nature.zip.
+    c) gunakan fungsi perulangan agar dapat mendecrypt semua file berekstensi .jpg yang ada di dalam folder nature sekaligus.
+       for i in *.jpg;
+       do
+       done
+    d) decrypt isi file menggunakan base64 –d. 
+       base64 -d $i
+    e) pipe hasil ouput dari base64 –d. setelah itu reverse hexdump menggunakan xxd -r agar menjadi bentuk file. Dan simpan hasil       file yang udah jadi di folder hex.
+       | xxd -r > hex/$i
+    f) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
+       14 14 14 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
+
 
    2) Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa:
 
