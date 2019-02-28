@@ -7,14 +7,8 @@ awk -F "," '{
         if ($7 == "2012" && $1 == "United States") {
 		productline[$4] = productline[$4] + $10 
 	}
-	if ($7 == "2012" && $1 == "United States" && $4 == "Personal Accessories") {
-		product1[$6] = product1[$6] + $10
-	}
-	if ($7 == "2012" && $1 == "United States" && $4 == "Camping Equipment") {
-		product2[$6] = product2[$6] + $10
-	}
-	if ($7 == "2012" && $1 == "United States" && $4 == "Outdoor Protection") {
-		product3[$6] = product3[$6] + $10
+	if ($7 == "2012" && $1 == "United States" && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection")) {
+		product[$6] = product[$6] + $10
 	}
 }
 END {
@@ -63,26 +57,28 @@ END {
 	maxprodk1=0
 	maxprodk2=0
 	maxprodk3=0
-	for (i in product1) {
-		if (product1[i] > maxprodk1) {
-			maxprodk1 = product1[i]
+	for (i in product) {
+		if (product[i] > maxprodk1) {
+			maxprodk3 = maxprodk2
+			maxprodk2 = maxprodk1
+			maxprodk1 = product[i]
+			prodk1 = prodk2
+			prodk2 = prodk1
 			prodk1 = i
 		}
-	}
-	for (i in product2) {
-		if (product2[i] > maxprodk2) {
-			maxprodk2 = product2[i]
+		else if (product[i] > maxprodk2) {
+			maxprodk3 = maxprodk2
+			maxprodk2 = product[i]
+			prodk3 = prodk2
 			prodk2 = i
 		}
-	}
-	for (i in product3) {
-		if (product3[i] > maxprodk3) {
-			maxprodk3 = product3[i]
+		else if (product[i] > maxprodk3) {
+			maxprodk3 = product[i]
 			prodk3 = i
 		}
 	}
-	print "c) Personal Accessories, dengan produk =", prodk1, maxprodk1
-	print "   Camping Equipment, dengan produk =", prodk2, maxprodk2
-	print "	  Outdoor Protection, dengan produk =", prodk3, maxprodk3
+	print "c)" prodk1, maxprodk1
+	print      prodk2, maxprodk2
+	print 	   prodk3, maxprodk3
 }
 ' WA_Sales_Products_2012-14.csv
