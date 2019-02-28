@@ -1,6 +1,6 @@
 #!/bin/bash
 
-date=`date +"%H:%M %d-%b-%Y"`
+date=`date +"%H:%M %d-%m-%Y"`
 hour=`date +%H`
 cat /var/log/syslog | 
 xxd -p -c1 | 
@@ -18,16 +18,15 @@ BEGIN { hour = strtonum(r) }
 {
 	$1 = hex2dec(0x$1)
 	if ($1 >= 65 && $1 <= 90) {
-		$1 = $1 - 65
-		$1 = ($1 + hour) % 26
-		$1 = $1 + 65
+		$1 = $1 - 64
+		$1 = ($1 + hour) % 27
+		$1 = $1 + 64
 	}
 	if ($1 >= 97 && $1 <= 122) {
-		$1 = $1 - 97
-		$1 = ($1 + hour) % 26
-		$1 = $1 + 97
+		$1 = $1 - 96
+		$1 = ($1 + hour) % 27
+		$1 = $1 + 96
 	}
-	printf("%c", $1)
-}
-' > /home/hafidzasqalany28/"$date".log
+	printf("%c", $1)}
 
+' > /home/hafidzasqalany28/modul1/"$date".log
