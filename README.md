@@ -41,28 +41,151 @@ jawaban :
        <code>
        awk -F "," '{
                if ($7 == "2012") 
-       }
+       }' WA_Sales_Products_2012-14.csv
+
        <code>
     b) total semua quantity(berada pada tabel ke 10($10)) yang ada pada setiap negara(berada pada tabel ke 1($1))
+       <code>
        total[$1] = total[$1] + $10
+       <code>
     c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
        <code>
-       >max=0
-       >for (i in total) {
-                >if (total[i] > max) {
-                        >max = total[i]
-                        >negara = i
-                        #print i,total[i]
-                >}
-        >}
-        >print "a)", negara, max
+       max=0
+       for (i in total) {
+                if (total[i] > max) {
+                        max = total[i]
+                        negara = i
+                }
+        }
+        print "a)", negara, max
         <code>
-    d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada poin b.
-    e) total semua quantity pada product line.
+    d) buatlah script awk untuk menyortir data agar mendapatkan tabel product line(berada pada tabel ke 4($4)) dan quantity(berada pada tabel ke 10($10)) pada negara dengan quantity terbanyak yang telah di dapatkan yaitu United States.
+       <code>
+       awk -F "," '{
+            if ($7 == "2012" && $1 == "United States") 
+       }' WA_Sales_Products_2012-14.csv
+       <code>
+    e) total semua quantity(berada pada tabel ke 10($10)) pada product line(berada pada tabel ke 4($4)). 
+       <code>
+       productline[$4] = productline[$4] + $10
+       <code>
     f) tampilkan 3 product line yang mempunyai quantity terbanyak dengan menggunakan perulangan.
-    g) buatlah script awk untuk menyortir data agar menampilkan tabel product dan quantity pada product line yang didapatkan pada poin f.
+       <code>
+       maxpl1=0
+       maxpl2=0
+       maxpl3=0
+       pl1=0
+       l2=0
+       pl3=0
+       for (i in productline) {
+                if (productline[i] > maxpl1) {
+                        maxpl3 = maxpl2
+                        maxpl2 = maxpl1
+                        maxpl1 = productline[i]
+                        pl3 = pl2
+                        pl2 = pl1
+                        pl1 = i
+                }
+                else if (productline[i] > maxpl2) {
+                if (productline[i] > maxpl1) {
+                        maxpl3 = maxpl2
+                        maxpl2 = maxpl1
+                        maxpl1 = productline[i]
+                        pl3 = pl2
+                        pl2 = pl1
+                        pl1 = i
+                }
+                else if (productline[i] > maxpl2) {
+                        maxpl3 = maxpl2
+                        maxpl2 = productline[i]
+                        pl3 = pl2
+                        pl2 = i
+                }
+                else if (productline[i] > maxpl3) {
+                        maxpl3 = productline[i]
+                        pl3 = i
+                }
+        } 
+                 maxpl2 = productline[i]
+                 pl3 = pl2
+                 pl2 = i
+                }
+                else if (productline[i] > maxpl3) {
+                        maxpl3 = productline[i]
+                        pl3 = i
+                }
+        } 
+        print "b)", pl1, maxpl1
+        print "  ", pl2, maxpl2
+        print "  ", pl3, maxpl3
+       <code>
+    g) buatlah script awk untuk menyortir data agar menampilkan tabel product dan quantity pada 3 product line terbanyak yang didapatkan yaitu Personal Accessories, Camping Equipment, dan Outdoor Protection.
+       <code>
+       awk -F "," '{
+             if ($7 == "2012" && $1 == "United States" && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 ==  "Outdoor Protection"))
+       }' WA_Sales_Products_2012-14.csv
+       <code>
     h) total semua quantity pada product.
+       <code>
+       product[$6] = product[$6] + $10
+       <code>
     i) tampilkan 3 product yang mempunyai quantity terbanyak dengan menggunakan perulangan.
+       <code>
+       prodk1=0
+       prodk2=0
+       prodk3=0
+       maxprodk1=0
+       maxprodk2=0
+       maxprodk3=0
+         for (i in product) {
+                if (product[i] > maxprodk1) {
+                        maxprodk3 = maxprodk2
+                        maxprodk2 = maxprodk1
+                        maxprodk1 = product[i]
+                        prodk1 = prodk2
+                        prodk2 = prodk1
+                        prodk1 = i
+        prodk3=0
+        maxprodk1=0
+        maxprodk2=0
+        maxprodk3=0
+        for (i in product) {
+                if (product[i] > maxprodk1) {
+                        maxprodk3 = maxprodk2
+                        maxprodk2 = maxprodk1
+                        maxprodk1 = product[i]
+                        prodk1 = prodk2
+                        prodk2 = prodk1
+                        prodk1 = i
+                }
+                else if (product[i] > maxprodk2) {
+                        maxprodk3 = maxprodk2
+                        maxprodk2 = product[i]
+                        prodk3 = prodk2
+                        prodk2 = i
+                }
+                else if (product[i] > maxprodk3) {
+                        maxprodk3 = product[i]
+                        prodk3 = i
+                }
+        }
+        prodk1 = i
+                }
+                else if (product[i] > maxprodk2) {
+                        maxprodk3 = maxprodk2
+                        maxprodk2 = product[i]
+                        prodk3 = prodk2
+                        prodk2 = i
+                }
+                else if (product[i] > maxprodk3) {
+                        maxprodk3 = product[i]
+                        prodk3 = i
+                }
+        }
+        print "c)" prodk1, maxprodk1
+        print      prodk2, maxprodk2
+        print      prodk3, maxprodk3
+        <code>
 
    3) Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
 
