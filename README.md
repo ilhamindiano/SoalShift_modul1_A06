@@ -10,16 +10,23 @@
     a) unzip file nature.zip.
     b) lalu buatlah bash script di dalam folder ekstrak file nature.zip.
     c) gunakan fungsi perulangan agar dapat mendecrypt semua file berekstensi .jpg yang ada di dalam folder nature sekaligus.
+       <code>
        for i in *.jpg;
        do
        done
+       <code>
     d) decrypt isi file menggunakan base64 –d. 
+       <code>
        base64 -d $i
+       <code>
     e) pipe hasil ouput dari base64 –d. setelah itu reverse hexdump menggunakan xxd -r agar menjadi bentuk file. Dan simpan hasil       file yang udah jadi di folder hex.
+       <code>
        | xxd -r > hex/$i
+       <code>
     f) lalu buatlah cronjob dengan mengetikkan crontab -e dan atur waktu menjadi :
+       <code>
        14 14 14 2 5 bash /home/hafidzasqalany28/nature/soal1.sh
-
+       <code>
 
    2) Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa:
 
@@ -31,24 +38,25 @@ jawaban :
 
     Langkah-Langkah :
     a) buatlah script awk untuk menyortir data agar hanya mendapatkan tabel negara dan quantity pada tahun 2012 dengan      menggunakan syntax awk –F “,”. Syntax tersebut berfungsi agar awk dapat menyortir data per-tabel.
+       <code>
        awk -F "," '{
                if ($7 == "2012") 
        }
+       <code>
     b) total semua quantity(berada pada tabel ke 10($10)) yang ada pada setiap negara(berada pada tabel ke 1($1))
        total[$1] = total[$1] + $10
     c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
-       max=0
        <code>
-       for (i in total) {
-                if (total[i] > max) {
-                        max = total[i]
-                        negara = i
+       >max=0
+       >for (i in total) {
+                >if (total[i] > max) {
+                        >max = total[i]
+                        >negara = i
                         #print i,total[i]
-                }
-        }
-        print "a)", negara, max
+                >}
+        >}
+        >print "a)", negara, max
         <code>
-
     d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada poin b.
     e) total semua quantity pada product line.
     f) tampilkan 3 product line yang mempunyai quantity terbanyak dengan menggunakan perulangan.
