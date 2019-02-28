@@ -32,7 +32,8 @@ jawaban :
     Langkah-Langkah :
     a) buatlah script awk untuk menyortir data agar hanya mendapatkan tabel negara dan quantity pada tahun 2012 dengan      menggunakan syntax awk –F “,”. Syntax tersebut berfungsi agar awk dapat menyortir data per-tabel.
        awk -F "," '{
-               if ($7 == "2012")
+               if ($7 == "2012") 
+       }
     b) total semua quantity(berada pada tabel ke 10($10)) yang ada pada setiap negara(berada pada tabel ke 1($1))
        total[$1] = total[$1] + $10
     c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
@@ -44,7 +45,7 @@ jawaban :
                         #print i,total[i]
                 }
         }
-        print "a)", negara, max
+        print "a)", negara, max<code>
 
     d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada poin b.
     e) total semua quantity pada product line.
