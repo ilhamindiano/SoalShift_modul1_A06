@@ -37,14 +37,14 @@ jawaban :
        total[$1] = total[$1] + $10
     c) tampilkan negara yang mempunyai nilai quantity terbanyak pada tahun 2012 dengan menggunakan perulangan.
        max=0
-       <codefor (i in total) {
+       <code>for (i in total) {
                 if (total[i] > max) {
                         max = total[i]
                         negara = i
                         #print i,total[i]
                 }
         }
-        print "a)", negara, max>
+        print "a)", negara, max
 
     d) buatlah script awk untuk menyortir data agar menampilkan tabel product line dan quantity pada negara yang di dapatkan pada poin b.
     e) total semua quantity pada product line.
