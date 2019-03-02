@@ -210,14 +210,64 @@ jawaban :
     d. Backup file syslog setiap jam.
     e. dan buatkan juga bash script untuk dekripsinya. jawaban :
   
-      Langkah-Langkah :
-    a) deklarasikan variabel date agar menyimpan data untuk memiliki format nama file “jam:menit tanggal- bulan-tahun”.
-    b) deklarasikan variabel agar dapat menyimpan data jam yang akan di print.
-    c) melihat semua proses syslog yang telah berjalan
-    d) mengubah data syslog menjadi hexdump dan sortir menggunakan awk
-    e) membuat fungsi agar isi dari file poin a mempunyai ketentuan sesuai poin soal a-c.
+      Langkah-Langkah Encrypt :
+    a) cat file /var/log/syslog dan  diubah ke bentuk plain hexdump.
+       <code>
+       cat /var/log/syslog | 
+       xxd -p -c1 | 
+       <code>
+    b) setelah itu bilangan hexadecimal diubah ke bentuk decimal menggunakan fungsi hex2dec.
+       <code>
+       function hex2dec(h,i,x,v) {
+         h=tolower(h);sub(/^0x/,"",h)
+         for(i=1;i<=length(h);++i){
+            x=index("0123456789abcdef",substr(h,i,1))
+            if(!x)return "NaN"
+            v=(16*v)+x-1
+         }
+         return v
+      }
+      <code>
+    c) Untuk isi file syslog dengan huruf uppercase (decimal antara 65 sampai 90) : 
+       -pertama mengurangi bilangan decimal dengan 64(agar mendapatkan indeks sesuai alfabet). 
+       -Kemudian penjumlahan antara bilangan decimal dengan jam dimodulus 27 ( agar ketika telah melewati indeks 26=Z akan kembali menjadi 1=A ).
+       -jumlahkan kembali dengan 64 untuk menentukan ASCII nya. 
+       <code>
+       BEGIN { hour = strtonum(r) }
+       {
+            $1 = hex2dec(0x$1)
+            if ($1 >= 65 && $1 <= 90) {
+                $1 = $1 - 64
+                $1 = ($1 + hour) % 27
+                $1 = $1 + 64
+            }
+        }
+        }
+       <code>
+    d) Untuk isi file syslog dengan huruf Lowercase (decimal antrara 97 dan 122) :
+       -pertama mengurangi bilangan decimal dengan 96(agar mendapatkan indeks sesuai alfabet). 
+       -Kemudian penjumlahan antara bilangan decimal dengan jam dimodulus 27 ( agar ketika telah melewati indeks 26=Z akan kembali menjadi 1=A ).
+       -jumlahkan kembali dengan 64 untuk menentukan ASCII nya. 
+       -setelah itu bilangan decimal dikurangi dan ditambah dengan 96. 
+       <code>
+       BEGIN { hour = strtonum(r) }
+       {
+            $1 = hex2dec(0x$1)
+            if ($1 >= 97 && $1 <= 122) {
+                $1 = $1 - 96
+                $1 = ($1 + hour) % 27
+                $1 = $1 + 96
+            }      
+        }
+        }
+       <code>
+    e) Backup akan disimpan dengan nama “$date.log” dimana date adalah jam:menit tanggal-bulan-tahun.
+       <code>
+       date=`date +"%H:%M %d-%m-%Y"`
+       > /home/hafidzasqalany28/modul1/"$date".log
+       <code>
     f) membuat file crontab :
-    0 * * * * bash /home/hafidzasqalany28/soal4.sh
+       0 * * * * bash /home/hafidzasqalany28/soal4.sh
 
    5) Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
 
